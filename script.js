@@ -10,6 +10,8 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
     
+    setImage(playerSelection , computerSelection);
+
     if(playerSelection === "rock" && computerSelection === "paper") {
         return `You Lose! ${computerSelection} beats ${playerSelection}`;
     }
@@ -57,4 +59,30 @@ paperBtn.addEventListener("click" , () => roundResult("paper" , computerPlay()))
 const scissorsBtn = document.querySelector('#scissors');
 scissorsBtn.addEventListener("click" , () => roundResult("scissors" , computerPlay()));
 
+const youSelected = document.getElementById('youSelected');
+const computerSelected = document.getElementById('computerSelected');
 
+
+function selectImage(elementSelected) {
+    if(elementSelected === 'rock') {        
+        return './Images/rockIcon.png';
+    }
+
+    else if(elementSelected === 'paper') {
+        return './Images/paper.png';
+    }
+    
+    else if(elementSelected === 'scissors') {
+        return './Images/scissorsIcon.png';
+    }
+}
+
+function setImage(yourSelectedElement , computerSelectedElement) {
+    yourSourceImage = selectImage(yourSelectedElement);
+    computerSourceImage = selectImage(computerSelectedElement);
+
+    youSelected.src = `${yourSourceImage}`;
+    computerSelected.src = `${computerSourceImage}`;
+    
+    console.log(`youSelected.src === ${youSelected.src} , computerSelected.src = ${computerSelected.src}`);
+}
