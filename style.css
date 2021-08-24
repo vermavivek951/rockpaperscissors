@@ -23,7 +23,22 @@ body{
     height: 500px;
 }
 
+.versusAndScore {
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
 .versusImages {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    height: 130px;
+}
+
+.score {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

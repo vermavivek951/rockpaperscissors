@@ -1,3 +1,7 @@
+let initiaPlayerScore = 0;
+let initialComputerScore = 0;
+
+
 function computerPlay() {
     let randomNum = Math.floor(Math.random() * 3)+ 1;
     if(randomNum === 1)
@@ -13,9 +17,11 @@ function playRound(playerSelection, computerSelection) {
     setImage(playerSelection , computerSelection);
 
     if(playerSelection === "rock" && computerSelection === "paper") {
+        updateScore("computerScore");
         return `You Lose! ${computerSelection} beats ${playerSelection}`;
     }
     else if(playerSelection === "rock" && computerSelection === "scissors") {
+        updateScore("yourScore");
         return `You win! ${playerSelection} beats ${computerSelection}`;
     }
     else if(playerSelection === "rock" && computerSelection === "rock") {
@@ -23,9 +29,11 @@ function playRound(playerSelection, computerSelection) {
     }
 
     else if(playerSelection === "paper" && computerSelection === "scissors") {
+        updateScore("computerScore");
         return `You Lose! ${computerSelection} beats ${playerSelection}`;
     }
     else if(playerSelection === "paper" && computerSelection === "rock") {
+        updateScore("yourScore");
         return `You win! ${playerSelection} beats ${computerSelection}`;
     }
     else if(playerSelection === "paper" && computerSelection === "paper") {
@@ -33,9 +41,11 @@ function playRound(playerSelection, computerSelection) {
     }
 
     else if(playerSelection === "scissors" && computerSelection === "rock") {
+        updateScore("computerScore");
         return `You Lose! ${computerSelection} beats ${playerSelection}`;
     }
     else if(playerSelection === "scissors" && computerSelection === "paper") {
+        updateScore("yourScore");
         return `You win! ${playerSelection} beats ${computerSelection}`;
     }
     else if(playerSelection === "scissors" && computerSelection === "scissors") {
@@ -85,4 +95,18 @@ function setImage(yourSelectedElement , computerSelectedElement) {
     computerSelected.src = `${computerSourceImage}`;
     
     console.log(`youSelected.src === ${youSelected.src} , computerSelected.src = ${computerSelected.src}`);
+}
+
+const yourScore = document.getElementById('yourScore');
+const computerScore = document.getElementById('computerScore');
+
+function updateScore(elementID) {
+
+    if(elementID === "yourScore") {
+        yourScore.textContent = `${++initiaPlayerScore}`;
+    }
+
+    else if(elementID === "computerScore") {
+        computerScore.textContent = `${++initialComputerScore}`;
+    }
 }
