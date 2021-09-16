@@ -1,2 +1,2 @@
 # rockpaperscissors
-A beginner level Rock Paper Scissor game using javascript
+A  Rock Paper Scissor game using javascript
